@@ -3,7 +3,7 @@ import dotenv from 'dotenv'
 import cors from 'cors'
 import mongoose from 'mongoose'
 import bodyParser from 'body-parser';
-
+import route from './routes/userRoutes.js';
 
 const app = express();
 
@@ -25,3 +25,8 @@ mongoose
 .catch(()=>{
     console.log("Error to connect database");
 })
+
+
+
+
+app.use("/api", route);
