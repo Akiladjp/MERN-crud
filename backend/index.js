@@ -6,9 +6,11 @@ import bodyParser from 'body-parser';
 import route from './routes/userRoutes.js';
 
 const app = express();
+app.use(cors());
 
 app.use(bodyParser.json());
 dotenv.config();
+
 
 const PORT = process.env.PORT || 7000;
 const MONGOURL = process.env.MONGO_URL;
@@ -25,8 +27,6 @@ mongoose
 .catch(()=>{
     console.log("Error to connect database");
 })
-
-
 
 
 app.use("/api", route);

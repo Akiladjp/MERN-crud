@@ -13,7 +13,10 @@ export const createUser = async(req, res) => {
             return res.status(400).json({Message: `${email} User already exists`});
         }
         const savedData = await newUser.save();
+
+        console.log("Saved User Data: ", savedData);
         res.status(200).json(savedData);
+
 
     } catch (error) {
         res.status(500).json({ Message: "error in create users" });
